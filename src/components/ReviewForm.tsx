@@ -18,7 +18,7 @@ export default function Rating() {
     const [rating, setRating] = useState(0);
 
     return (
-        <Card className="w-full">
+        <Card className="w-full h-fit">
             <CardHeader>
                 <CardTitle>Avis sur le produit</CardTitle>
                 <CardDescription>

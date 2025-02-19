@@ -18,7 +18,16 @@ export default function ReviewList() {
                 </CardDescription>
             </CardHeader>
             <CardContent>
-                <ScrollArea className="h-[400px] pr-4">
+                <ScrollArea className="h-[300px] pr-4">
+                    <ReviewItem />
+                    <ReviewItem />
+                    <ReviewItem />
+                    <ReviewItem />
+                    <ReviewItem />
+                    <ReviewItem />
+                    <ReviewItem />
+                    <ReviewItem />
+                    <ReviewItem />
                     <ReviewItem />
                 </ScrollArea>
             </CardContent>

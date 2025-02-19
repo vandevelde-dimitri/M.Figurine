@@ -13,7 +13,7 @@ export default function Header() {
                     href="/"
                     className="text-white text-xl font-bold relative z-10"
                 >
-                    M.Figurine
+                    M. Figurine
                 </Link>
                 <nav
                     className={`${

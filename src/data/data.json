@@ -69,6 +69,7 @@
             "Id_users": 2,
             "shipping_cost": 10.0,
             "order_status": "shipped",
+            "created_at": "2025-02-17T12:30:00Z",
             "products": [
                 {
                     "Id_product": 1,
@@ -91,6 +92,7 @@
             "Id_users": 3,
             "shipping_cost": 5.0,
             "order_status": "pending",
+            "created_at": "2025-02-18T09:15:00Z",
             "products": [
                 {
                     "Id_product": 3,
@@ -173,6 +175,23 @@
             "rating": 3,
             "comment": "Les écouteurs sont confortables, mais la qualité du son pourrait être meilleure.",
             "created_at": "2025-02-15T12:00:00"
+        }
+    ],
+    "cart": [
+        {
+            "Id_users": 2,
+            "Id_product": 1,
+            "quantity": 1
+        },
+        {
+            "Id_users": 2,
+            "Id_product": 3,
+            "quantity": 2
+        },
+        {
+            "Id_users": 3,
+            "Id_product": 2,
+            "quantity": 1
         }
     ]
 }

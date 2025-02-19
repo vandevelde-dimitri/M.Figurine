@@ -1,9 +1,26 @@
 "use client";
-import ProductBox from "@/components/produc";
 import { Button } from "@/components/ui/button";
+import {
+    DropdownMenu,
+    DropdownMenuContent,
+    DropdownMenuGroup,
+    DropdownMenuItem,
+    DropdownMenuLabel,
+    DropdownMenuSeparator,
+    DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 import { Input } from "@/components/ui/input";
+import { ScrollArea } from "@/components/ui/scroll-area";
+import {
+    Table,
+    TableBody,
+    TableCell,
+    TableHead,
+    TableHeader,
+    TableRow,
+} from "@/components/ui/table";
 import data from "@/data/data.json";
-import { Heart } from "lucide-react";
+import { Ellipsis } from "lucide-react";
 import Image from "next/image";
 import { useState } from "react";
 
@@ -11,7 +28,7 @@ export default function Account() {
     const [activeTab, setActiveTab] = useState<"orders" | "wishlist">("orders");
 
     return (
-        <div className="flex min-h-screen w-full flex-col">
+        <div className="flex w-full flex-col">
             <main className="flex-1">
                 <div className="container px-4 py-8 mx-auto max-w-[1400px]">
                     <div className="flex flex-col md:flex-row gap-8">
@@ -42,63 +59,103 @@ export default function Account() {
 
                             {activeTab === "orders" ? (
                                 <div className="space-y-6">
-                                    {data.orders.map((order, index) => (
-                                        <div
-                                            key={index}
-                                            className="border-b pb-6"
-                                        >
-                                            <p className="text-sm text-gray-600 mb-2">
-                                                {order.created_at}
-                                            </p>
-                                            <div className="space-y-1 mb-4">
-                                                <p>{"John Doe"}</p>
-                                                <p>{"john@doe.fr"}</p>
-                                                <p>{"123 Main St"}</p>
-                                                <p>
-                                                    {"62 800"} {"Lens"},{" "}
-                                                    {"France"}
+                                    <ScrollArea className="h-[300px] pr-4">
+                                        {data.orders.map((order, index) => (
+                                            <div
+                                                key={index}
+                                                className="border-b py-6"
+                                            >
+                                                <p className="text-sm text-gray-600 mb-2">
+                                                    {order.created_at}
                                                 </p>
+                                                <div className="space-y-1 mb-4">
+                                                    <p>{"John Doe"}</p>
+                                                    <p>{"john@doe.fr"}</p>
+                                                    <p>{"123 Main St"}</p>
+                                                    <p>
+                                                        {"62 800"} {"Lens"},{" "}
+                                                        {"France"}
+                                                    </p>
+                                                </div>
+                                                <div className="space-y-2">
+                                                    <p className="text-sm">
+                                                        {2} × {"phone"}
+                                                    </p>
+                                                </div>
                                             </div>
-                                            <div className="space-y-2">
-                                                <p className="text-sm">
-                                                    {2} × {"phone"}
-                                                </p>
-                                            </div>
-                                        </div>
-                                    ))}
+                                        ))}
+                                    </ScrollArea>
                                 </div>
                             ) : (
-                                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                    {data.product.map((product) => (
-                                        <ProductBox
-                                            key={product.Id_product}
-                                            product={product}
-                                        />
-                                    ))}
-                                    <div className="relative">
-                                        <Heart className="absolute top-2 right-2 w-6 h-6 text-red-500 fill-red-500" />
-                                        <div className="aspect-square relative mb-4">
-                                            <Image
-                                                src={
-                                                    "https://plus.unsplash.com/premium_photo-1679513691474-73102089c117?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8aGVhZHBob25lc3xlbnwwfHwwfHx8MA%3D%3D"
-                                                }
-                                                alt={"phone"}
-                                                fill
-                                                className="object-contain"
-                                            />
-                                        </div>
-                                        <h3 className="font-medium mb-2">
-                                            {"phone"}
-                                        </h3>
-                                        <div className="flex items-center justify-between">
-                                            <span className="text-lg font-bold">
-                                                ${24}
-                                            </span>
-                                            <Button variant="outline">
-                                                Add to cart
-                                            </Button>
-                                        </div>
-                                    </div>
+                                <div className="grid grid-cols-1 md:grid-cols-1 gap-6">
+                                    <Table>
+                                        <TableHeader>
+                                            <TableRow>
+                                                <TableHead>Visuel</TableHead>
+                                                <TableHead>Nom</TableHead>
+                                                <TableHead>Prix</TableHead>
+                                                <TableHead className="text-right">
+                                                    Action
+                                                </TableHead>
+                                            </TableRow>
+                                        </TableHeader>
+                                        <TableBody>
+                                            {data.product.map((product) => (
+                                                <TableRow
+                                                    key={product.Id_product}
+                                                >
+                                                    <TableCell>
+                                                        <Image
+                                                            src={product.image}
+                                                            width={50}
+                                                            height={50}
+                                                            alt={product.name}
+                                                        />
+                                                    </TableCell>
+                                                    <TableCell>
+                                                        {product.name}
+                                                    </TableCell>
+                                                    <TableCell>
+                                                        {product.price} €
+                                                    </TableCell>
+                                                    <TableCell className="text-right">
+                                                        <DropdownMenu>
+                                                            <DropdownMenuTrigger
+                                                                asChild
+                                                            >
+                                                                <Button
+                                                                    size="icon"
+                                                                    variant="outline"
+                                                                    className="rounded-full"
+                                                                >
+                                                                    <Ellipsis />
+                                                                </Button>
+                                                            </DropdownMenuTrigger>
+                                                            <DropdownMenuContent className="w-56">
+                                                                <DropdownMenuLabel>
+                                                                    Action
+                                                                </DropdownMenuLabel>
+                                                                <DropdownMenuSeparator />
+                                                                <DropdownMenuGroup>
+                                                                    <DropdownMenuItem>
+                                                                        Supprimer
+                                                                    </DropdownMenuItem>
+                                                                    <DropdownMenuItem>
+                                                                        Voir
+                                                                    </DropdownMenuItem>
+                                                                    <DropdownMenuItem>
+                                                                        Mettre
+                                                                        dans le
+                                                                        panier
+                                                                    </DropdownMenuItem>
+                                                                </DropdownMenuGroup>
+                                                            </DropdownMenuContent>
+                                                        </DropdownMenu>
+                                                    </TableCell>
+                                                </TableRow>
+                                            ))}
+                                        </TableBody>
+                                    </Table>
                                 </div>
                             )}
                         </div>

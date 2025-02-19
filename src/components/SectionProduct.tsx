@@ -24,7 +24,7 @@ export default function SectionProduct({
                     </Link>
                 )}
             </div>
-            <section className="grid grid-cols-2 gap-5 md:grid-cols-4">
+            <section className="grid grid-cols-1 gap-5 md:grid-cols-2">
                 {product.map((product) => (
                     <ProductBox key={product.Id_product} product={product} />
                 ))}

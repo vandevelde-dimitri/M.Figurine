@@ -1,5 +1,5 @@
 "use client";
-import { Menu } from "lucide-react";
+import { Menu, Search } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
 
@@ -49,6 +49,12 @@ export default function Header() {
                         className="block text-gray-400 py-2 md:py-0 hover:text-white"
                     >
                         Pannier (0)
+                    </Link>
+                    <Link
+                        href="/search"
+                        className="block text-gray-400 py-2 md:py-0 hover:text-white"
+                    >
+                        <Search width={"20"} />
                     </Link>
                 </nav>
                 <button

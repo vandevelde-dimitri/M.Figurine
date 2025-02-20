@@ -8,6 +8,26 @@ const MouseEnterContext = createContext<
     [boolean, React.Dispatch<React.SetStateAction<boolean>>] | undefined
 >(undefined);
 
+// Hook pour détecter si l'écran est mobile
+const useIsMobile = () => {
+    const [isMobile, setIsMobile] = useState(false);
+
+    useEffect(() => {
+        const handleResize = () => {
+            setIsMobile(window.innerWidth < 768); // 768px = seuil mobile/tablette
+        };
+
+        handleResize(); // Vérifier au démarrage
+        window.addEventListener("resize", handleResize); // Met à jour lors du redimensionnement
+
+        return () => {
+            window.removeEventListener("resize", handleResize);
+        };
+    }, []);
+
+    return isMobile;
+};
+
 export const CardContainer = ({
     children,
     className,
@@ -19,8 +39,10 @@ export const CardContainer = ({
 }) => {
     const containerRef = useRef<HTMLDivElement>(null);
     const [isMouseEntered, setIsMouseEntered] = useState(false);
+    const isMobile = useIsMobile(); // Utiliser le hook pour détecter la taille de l'écran
 
     const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+        if (isMobile) return; // Désactiver l'effet 3D sur mobile
         if (!containerRef.current) return;
         const { left, top, width, height } =
             containerRef.current.getBoundingClientRect();
@@ -30,11 +52,13 @@ export const CardContainer = ({
     };
 
     const handleMouseEnter = (e: React.MouseEvent<HTMLDivElement>) => {
+        if (isMobile) return; // Désactiver l'effet 3D sur mobile
         setIsMouseEntered(true);
         if (!containerRef.current) return;
     };
 
     const handleMouseLeave = (e: React.MouseEvent<HTMLDivElement>) => {
+        if (isMobile) return; // Désactiver l'effet 3D sur mobile
         if (!containerRef.current) return;
         setIsMouseEntered(false);
         containerRef.current.style.transform = `rotateY(0deg) rotateX(0deg)`;
@@ -47,7 +71,7 @@ export const CardContainer = ({
                     containerClassName
                 )}
                 style={{
-                    perspective: "1000px",
+                    perspective: isMobile ? "none" : "1000px", // Pas de perspective 3D sur mobile
                 }}
             >
                 <div
@@ -60,7 +84,7 @@ export const CardContainer = ({
                         className
                     )}
                     style={{
-                        transformStyle: "preserve-3d",
+                        transformStyle: isMobile ? "flat" : "preserve-3d", // Désactiver les effets 3D sur mobile
                     }}
                 >
                     {children}

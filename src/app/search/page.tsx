@@ -15,7 +15,7 @@ export default function Search() {
                 className="p-4 border rounded-lg w-full"
                 onChange={(e) => setSearchTerm(e.target.value)}
             />
-            <div className="grid grid-cols-1 gap-5 md:grid-cols-2 mt-5">
+            <div className="grid grid-cols-1 gap-5 md:grid-cols-3 mt-5">
                 {data.product
                     .filter((product) =>
                         product.name

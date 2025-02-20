@@ -26,18 +26,58 @@ export default function ProductDetails({ product }: { product: Product }) {
                         <div className="flex gap-3">
                             <CardItem
                                 translateZ="100"
-                                className="mt-4"
+                                className="mt-4 "
                                 onClick={() =>
                                     setMainImage(
-                                        "https://images.unsplash.com/photo-1707592691247-5c3a1c7ba0e3?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8d2lyZWxlc3MlMjBtb3VzZXxlbnwwfHwwfHx8MA%3D%3D"
+                                        "https://images.unsplash.com/photo-1523206489230-c012c64b2b48?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8cGhvbmV8ZW58MHx8MHx8fDA%3D"
                                     )
                                 }
                             >
                                 <Image
-                                    src={product.image}
+                                    src={
+                                        "https://images.unsplash.com/photo-1523206489230-c012c64b2b48?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8cGhvbmV8ZW58MHx8MHx8fDA%3D"
+                                    }
                                     height="1000"
                                     width="1000"
-                                    className="h-16 w-16 object-cover rounded-xl cursor-pointer group-hover/card:shadow-xl"
+                                    className="h-16 w-16 object-cover rounded-xl cursor-pointer group-hover/card:shadow-xl hover:border hover:border-black"
+                                    alt="thumbnail"
+                                />
+                            </CardItem>
+                            <CardItem
+                                translateZ="100"
+                                className="mt-4"
+                                onClick={() =>
+                                    setMainImage(
+                                        "https://images.unsplash.com/photo-1532356884227-66d7c0e9e4c2?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8cGhvbmV8ZW58MHx8MHx8fDA%3D"
+                                    )
+                                }
+                            >
+                                <Image
+                                    src={
+                                        "https://images.unsplash.com/photo-1532356884227-66d7c0e9e4c2?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8cGhvbmV8ZW58MHx8MHx8fDA%3D"
+                                    }
+                                    height="1000"
+                                    width="1000"
+                                    className="h-16 w-16 object-cover rounded-xl cursor-pointer group-hover/card:shadow-xl hover:border hover:border-black"
+                                    alt="thumbnail"
+                                />
+                            </CardItem>
+                            <CardItem
+                                translateZ="100"
+                                className="mt-4"
+                                onClick={() =>
+                                    setMainImage(
+                                        "https://images.unsplash.com/photo-1580910051074-3eb694886505?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fHBob25lfGVufDB8fDB8fHww"
+                                    )
+                                }
+                            >
+                                <Image
+                                    src={
+                                        "https://images.unsplash.com/photo-1580910051074-3eb694886505?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fHBob25lfGVufDB8fDB8fHww"
+                                    }
+                                    height="1000"
+                                    width="1000"
+                                    className="h-16 w-16 object-cover rounded-xl cursor-pointer group-hover/card:shadow-xl hover:border hover:border-black"
                                     alt="thumbnail"
                                 />
                             </CardItem>
@@ -51,10 +91,12 @@ export default function ProductDetails({ product }: { product: Product }) {
                                 }
                             >
                                 <Image
-                                    src={product.image}
+                                    src={
+                                        "https://images.unsplash.com/photo-1585060544812-6b45742d762f?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8c21hcnRwaG9uZXxlbnwwfHwwfHx8MA%3D%3D"
+                                    }
                                     height="1000"
                                     width="1000"
-                                    className="h-16 w-16 object-cover rounded-xl cursor-pointer group-hover/card:shadow-xl"
+                                    className="h-16 w-16 object-cover rounded-xl cursor-pointer group-hover/card:shadow-xl hover:border hover:border-black"
                                     alt="thumbnail"
                                 />
                             </CardItem>
@@ -63,49 +105,17 @@ export default function ProductDetails({ product }: { product: Product }) {
                                 className="mt-4"
                                 onClick={() =>
                                     setMainImage(
-                                        "https://images.unsplash.com/photo-1585060544812-6b45742d762f?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8c21hcnRwaG9uZXxlbnwwfHwwfHx8MA%3D%3D"
+                                        "https://images.unsplash.com/photo-1525598912003-663126343e1f?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cGhvbmV8ZW58MHx8MHx8fDA%3D"
                                     )
                                 }
                             >
                                 <Image
-                                    src={product.image}
+                                    src={
+                                        "https://images.unsplash.com/photo-1525598912003-663126343e1f?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cGhvbmV8ZW58MHx8MHx8fDA%3D"
+                                    }
                                     height="1000"
                                     width="1000"
-                                    className="h-16 w-16 object-cover rounded-xl cursor-pointer group-hover/card:shadow-xl"
-                                    alt="thumbnail"
-                                />
-                            </CardItem>
-                            <CardItem
-                                translateZ="100"
-                                className="mt-4"
-                                onClick={() =>
-                                    setMainImage(
-                                        "https://images.unsplash.com/photo-1585060544812-6b45742d762f?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8c21hcnRwaG9uZXxlbnwwfHwwfHx8MA%3D%3D"
-                                    )
-                                }
-                            >
-                                <Image
-                                    src={product.image}
-                                    height="1000"
-                                    width="1000"
-                                    className="h-16 w-16 object-cover rounded-xl cursor-pointer group-hover/card:shadow-xl"
-                                    alt="thumbnail"
-                                />
-                            </CardItem>
-                            <CardItem
-                                translateZ="100"
-                                className="mt-4"
-                                onClick={() =>
-                                    setMainImage(
-                                        "https://images.unsplash.com/photo-1585060544812-6b45742d762f?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8c21hcnRwaG9uZXxlbnwwfHwwfHx8MA%3D%3D"
-                                    )
-                                }
-                            >
-                                <Image
-                                    src={product.image}
-                                    height="1000"
-                                    width="1000"
-                                    className="h-16 w-16 object-cover rounded-xl cursor-pointer group-hover/card:shadow-xl"
+                                    className="h-16 w-16 object-cover rounded-xl cursor-pointer group-hover/card:shadow-xl hover:border hover:border-black"
                                     alt="thumbnail"
                                 />
                             </CardItem>

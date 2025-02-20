@@ -2,9 +2,47 @@
 import { Menu, Search } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
+import { Button } from "./ui/button";
+import {
+    Sheet,
+    SheetContent,
+    SheetHeader,
+    SheetTitle,
+    SheetTrigger,
+} from "./ui/sheet";
 
 export default function Header() {
-    const [mobileNavActive, setMobileNavActive] = useState(false);
+    const [isOpen, setIsOpen] = useState(false);
+
+    const handleLinkClick = () => {
+        setIsOpen(false);
+    };
+    const navigation = [
+        {
+            name: "Acceuil",
+            href: "/",
+        },
+        {
+            name: "Nos produits",
+            href: "/products",
+        },
+        {
+            name: "Categories",
+            href: "/category",
+        },
+        {
+            name: "Compte",
+            href: "/account",
+        },
+        {
+            name: "Pannier (0)",
+            href: "/cart",
+        },
+        {
+            name: isOpen ? "Rechercher" : <Search width={"20"} />,
+            href: "/search",
+        },
+    ];
 
     return (
         <header className="bg-gray-900 text-white">
@@ -16,53 +54,45 @@ export default function Header() {
                     M. Figurine
                 </Link>
                 <nav
-                    className={`${
-                        mobileNavActive ? "block" : "hidden"
-                    } fixed inset-0 bg-gray-900 p-10 md:flex md:static md:p-0 md:space-x-6`}
+                    className={
+                        "hidden fixed inset-0 bg-gray-900 p-10 md:flex md:static md:p-0 md:space-x-6"
+                    }
                 >
-                    <Link
-                        href="/"
-                        className="block text-gray-400 py-2 md:py-0 hover:text-white"
-                    >
-                        Acceuil
-                    </Link>
-                    <Link
-                        href="/products"
-                        className="block text-gray-400 py-2 md:py-0 hover:text-white"
-                    >
-                        Nos produits
-                    </Link>
-                    <Link
-                        href="/category"
-                        className="block text-gray-400 py-2 md:py-0 hover:text-white"
-                    >
-                        Categories
-                    </Link>
-                    <Link
-                        href="/account"
-                        className="block text-gray-400 py-2 md:py-0 hover:text-white"
-                    >
-                        Compte
-                    </Link>
-                    <Link
-                        href="/cart"
-                        className="block text-gray-400 py-2 md:py-0 hover:text-white"
-                    >
-                        Pannier (0)
-                    </Link>
-                    <Link
-                        href="/search"
-                        className="block text-gray-400 py-2 md:py-0 hover:text-white"
-                    >
-                        <Search width={"20"} />
-                    </Link>
+                    {navigation.map((item, index) => (
+                        <Link
+                            key={index}
+                            href={item.href}
+                            className="block text-gray-400 py-2 md:py-0 hover:text-white"
+                        >
+                            {item.name}
+                        </Link>
+                    ))}
                 </nav>
-                <button
-                    onClick={() => setMobileNavActive((prev) => !prev)}
-                    className="text-white w-8 h-8 md:hidden relative z-10"
-                >
-                    <Menu />
-                </button>
+                <Sheet open={isOpen} onOpenChange={setIsOpen}>
+                    <SheetTrigger asChild className="lg:hidden ml-auto">
+                        <Button variant="ghost" size="icon">
+                            <Menu className="h-5 w-5" />
+                            <span className="sr-only">Menu</span>
+                        </Button>
+                    </SheetTrigger>
+                    <SheetContent side="right">
+                        <SheetHeader>
+                            <SheetTitle>Menu</SheetTitle>
+                        </SheetHeader>
+                        <nav className="flex flex-col space-y-4 mt-6">
+                            {navigation.map((item, index) => (
+                                <Link
+                                    key={index}
+                                    href={item.href}
+                                    className="text-foreground/60 transition-colors hover:text-foreground"
+                                    onClick={handleLinkClick}
+                                >
+                                    {item.name}
+                                </Link>
+                            ))}
+                        </nav>
+                    </SheetContent>
+                </Sheet>
             </div>
         </header>
     );

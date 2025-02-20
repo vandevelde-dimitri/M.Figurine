@@ -70,18 +70,16 @@ export default function Cart() {
                                 {/* Total Section */}
                                 <div className="space-y-2 pt-4">
                                     <div className="flex justify-between text-base">
-                                        <span>Products</span>
-                                        <span>
-                                            ${"subtotal.toLocaleString()"}
-                                        </span>
+                                        <span>Sous total (8 articles)</span>
+                                        <span>€{500}</span>
                                     </div>
                                     <div className="flex justify-between text-base">
-                                        <span>Shipping</span>
-                                        <span>${"shipping"}</span>
+                                        <span>Frais de port</span>
+                                        <span>€{5}</span>
                                     </div>
                                     <div className="flex justify-between border-t pt-2 text-lg font-bold">
                                         <span>Total</span>
-                                        <span>${"total.toLocaleString()"}</span>
+                                        <span>€{505}</span>
                                     </div>
                                 </div>
                             </div>
@@ -90,7 +88,7 @@ export default function Cart() {
                         {/* Order Information Section */}
                         <div className="md:w-[400px] flex flex-col justify-center bg-white rounded-xl p-8">
                             <h2 className="text-2xl font-bold mb-6">
-                                Order information
+                                Information de commande
                             </h2>
                             <div className="space-y-4">
                                 <Input placeholder="John Doe" />

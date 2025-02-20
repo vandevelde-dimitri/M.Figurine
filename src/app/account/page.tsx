@@ -43,7 +43,7 @@ export default function Account() {
                                     }`}
                                     onClick={() => setActiveTab("orders")}
                                 >
-                                    Orders
+                                    Mes commandes
                                 </button>
                                 <button
                                     className={`text-xl font-medium pb-2 border-b-2 ${
@@ -53,7 +53,7 @@ export default function Account() {
                                     }`}
                                     onClick={() => setActiveTab("wishlist")}
                                 >
-                                    Wishlist
+                                    Mes favoris
                                 </button>
                             </div>
 
@@ -138,15 +138,15 @@ export default function Account() {
                                                                 <DropdownMenuSeparator />
                                                                 <DropdownMenuGroup>
                                                                     <DropdownMenuItem>
-                                                                        Supprimer
-                                                                    </DropdownMenuItem>
-                                                                    <DropdownMenuItem>
                                                                         Voir
                                                                     </DropdownMenuItem>
                                                                     <DropdownMenuItem>
                                                                         Mettre
                                                                         dans le
                                                                         panier
+                                                                    </DropdownMenuItem>
+                                                                    <DropdownMenuItem>
+                                                                        Supprimer
                                                                     </DropdownMenuItem>
                                                                 </DropdownMenuGroup>
                                                             </DropdownMenuContent>
@@ -163,12 +163,12 @@ export default function Account() {
                         {/* Account Details Section */}
                         <div className="md:w-[400px] bg-white rounded-xl p-8">
                             <h2 className="text-2xl font-bold mb-6">
-                                Account details
+                                Information personnelle
                             </h2>
                             <div className="space-y-4">
-                                <Input defaultValue="Dawid Paszko" />
+                                <Input defaultValue="John Doe" />
                                 <Input
-                                    defaultValue="dawid.paszko@gmail.com"
+                                    defaultValue="john@doe.com"
                                     type="email"
                                 />
                                 <div className="grid grid-cols-2 gap-4">
